@@ -1,0 +1,24 @@
+{
+  "name": "create-simple-serverless-app",
+  "version": "0.0.1",
+  "description": "create simple boilerplate for serverless framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "bin": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukasjhan/create-simple-serverless-app.git"
+  },
+  "keywords": [
+    "serverless",
+    "sls"
+  ],
+  "author": "lukas.j.han",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukasjhan/create-simple-serverless-app/issues"
+  },
+  "homepage": "https://github.com/lukasjhan/create-simple-serverless-app#readme"
+}
