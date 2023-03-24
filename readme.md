@@ -11,3 +11,8 @@ This is a simple serverless app that uses the [Serverless Framework](https://ser
 * simple-staging
 * typescript
 
+## Usage
+
+```
+npx create-simple-serverless-app {my-app}
+```
