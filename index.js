@@ -47,7 +47,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts(x?)$/,
+        test: /\\.ts(x?)$/,
         use: [
           {
             loader: 'ts-loader',
@@ -55,7 +55,7 @@ module.exports = {
         ],
       },
     ],
-    noParse: /\/node_modules\/encoding\/lib\/iconv-loader\.js$/,
+    noParse: /\\/node_modules\\/encoding\\/lib\\/iconv-loader\\.js$/,
   },
 };
 `;
