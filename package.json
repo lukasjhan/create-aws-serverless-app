@@ -1,6 +1,6 @@
 {
   "name": "create-simple-serverless-app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "create simple boilerplate for serverless framework",
   "main": "index.js",
   "scripts": {
