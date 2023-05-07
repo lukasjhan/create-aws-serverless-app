@@ -1,18 +1,17 @@
-# Create Simple Serverless App
+# Create AWS Serverless App
 
-This is a simple serverless app that uses the [Serverless Framework](https://serverless.com) to deploy a Lambda function to AWS.
+This is a aws serverless app that uses the [Serverless Framework](https://serverless.com) to deploy a Lambda function to AWS.
 
 ## Included Packages
 
-* serverless framework
-* serverless-offline
-* serverless-webpack
-* serverless-simple-middleware
-* simple-staging
-* typescript
+- serverless framework
+- serverless-offline
+- serverless-webpack
+- serverless-aws-middleware
+- typescript
 
 ## Usage
 
 ```
-npx create-simple-serverless-app {my-app}
+npx create-aws-serverless-app {my-app}
 ```
