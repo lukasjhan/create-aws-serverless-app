@@ -2,17 +2,17 @@
 
 const args = process.argv.slice(2);
 if (args.length !== 1) {
-  console.log('Usage: create-simple-serverless-app <project-name>');
+  console.log("Usage: create-aws-serverless-app <project-name>");
   process.exit(1);
 }
 
 const appName = args[0];
 
-console.log('Create Simple Serverless App');
+console.log("Create AWS Serverless App");
 console.log(`App Name: ${appName}`);
 
-const execSync = require('child_process').execSync;
-const fs = require('fs');
+const execSync = require("child_process").execSync;
+const fs = require("fs");
 
 const webpackConfig = `const path = require('path');
 const slsw = require('serverless-webpack');
@@ -114,10 +114,9 @@ const packageConfig = `{
     "deploy": "SLS_DEBUG=* sls deploy"
   },
   "dependencies": {
-    "cross-fetch": "^2.2.2",
+    "axios": "^1.4.0",
     "luxon": "^1.8.2",
-    "serverless-simple-middleware": "^0.0.50",
-    "simple-staging": "^0.0.12"
+    "serverless-aws-middleware": "^0.0.2"
   },
   "devDependencies": {
     "@types/luxon": "^1.4.1",
@@ -180,18 +179,12 @@ const middleware = `import {
   LoggerPluginAux,
   LogLevel,
   middleware,
-  MySQLPluginAux,
   TracerPluginAux,
-} from 'serverless-simple-middleware';
+} from 'serverless-aws-middleware';
 
 export type Aux = AWSPluginAux &
   TracerPluginAux &
-  LoggerPluginAux &
-  MySQLPluginAux;
-
-const dbConfiguration = {
-  database: 'database name',
-};
+  LoggerPluginAux;
 
 export const handler = middleware.build<Aux>([
   middleware.aws({
@@ -208,27 +201,24 @@ export const handler = middleware.build<Aux>([
     name: __filename,
     level: LogLevel.Stupid,
   }),
-  middleware.mysql({
-    config: dbConfiguration,
-  }),
 ]);
 `;
-const gitIgnore = 'node_modules';
+const gitIgnore = "node_modules";
 
 execSync(`mkdir ${appName}`);
 execSync(`cd ${appName} && git init`);
-fs.writeFileSync(`./${appName}/webpack.config.js`, webpackConfig, 'utf-8');
-fs.writeFileSync(`./${appName}/serverless.yml`, serverlessConfig, 'utf-8');
-fs.writeFileSync(`./${appName}/package.json`, packageConfig, 'utf-8');
-fs.writeFileSync(`./${appName}/tsconfig.json`, tsConfig, 'utf-8');
+fs.writeFileSync(`./${appName}/webpack.config.js`, webpackConfig, "utf-8");
+fs.writeFileSync(`./${appName}/serverless.yml`, serverlessConfig, "utf-8");
+fs.writeFileSync(`./${appName}/package.json`, packageConfig, "utf-8");
+fs.writeFileSync(`./${appName}/tsconfig.json`, tsConfig, "utf-8");
 execSync(`mkdir ${appName}/src`);
-fs.writeFileSync(`./${appName}/src/handler.ts`, handler, 'utf-8');
-fs.writeFileSync(`./${appName}/src/middleware.ts`, middleware, 'utf-8');
-fs.writeFileSync(`./${appName}/.gitignore`, gitIgnore, 'utf-8');
-execSync(`cd ${appName} && yarn`, {stdio: 'inherit'});
+fs.writeFileSync(`./${appName}/src/handler.ts`, handler, "utf-8");
+fs.writeFileSync(`./${appName}/src/middleware.ts`, middleware, "utf-8");
+fs.writeFileSync(`./${appName}/.gitignore`, gitIgnore, "utf-8");
+execSync(`cd ${appName} && yarn`, { stdio: "inherit" });
 
-console.log('============================');
-console.log('[Setting Complete!]');
-console.log('============================');
+console.log("============================");
+console.log("[Setting Complete!]");
+console.log("============================");
 
 process.exit(0);
