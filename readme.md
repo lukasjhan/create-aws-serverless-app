@@ -7,7 +7,7 @@ This is a aws serverless app that uses the [Serverless Framework](https://server
 - serverless framework
 - serverless-offline
 - serverless-webpack
-- serverless-aws-middleware
+- [serverless-aws-middleware](https://github.com/lukasjhan/serverless-aws-middleware)
 - typescript
 
 ## Usage
